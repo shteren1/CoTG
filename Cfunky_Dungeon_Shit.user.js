@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name Cfunky Dungeon Shit
-// @namespace http://your.homepage/
+// @namespace https://github.com/shteren1/CoTG/blob/master/Cfunky_Dungeon_Shit.user.js
 // @version 0.1
 // @description enter something useful
 // @author You
