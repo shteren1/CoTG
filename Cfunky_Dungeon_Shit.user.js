@@ -31,7 +31,7 @@
         outtable+="<table><thead><th>Lvl</th><th>Estimated Loot</th><th>Vanqs/Rangers<br>druids</th><th>Sorcs</th><th>Praetors</th><th>Arbs/Horses</th></thead>";
         outtable+="<tbody><tr><td>1</td><td>400</td><td>41</td><td>82</td><td>20</td><td>27</td></tr>";
         outtable+="<tr><td>2</td><td>1000</td><td>102</td><td>204</td><td>51</td><td>68</td></tr>";
-        outtable+="<tr><td>3</td><td>4500</td><td>459</td><td>918</td><<td>230</td><td>306</td></tr>";
+        outtable+="<tr><td>3</td><td>4500</td><td>459</td><td>918</td><td>230</td><td>306</td></tr>";
         outtable+="<tr><td>4</td><td>15000</td><td>1530</td><td>3060</td><td>765</td><td>1020</td></tr>";
         outtable+="<tr><td>5</td><td>33000</td><td>3366</td><td>6732</td><td>1683</td><td>2244</td></tr>";
         outtable+="<tr><td>6</td><td>60000</td><td>6120</td><td>12240</td><td>3060</td><td>4080</td></tr>";
