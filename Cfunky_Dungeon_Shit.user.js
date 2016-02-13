@@ -28,8 +28,8 @@
 
     function createTable() {
         var outtable="<div id='cfunkydiv' style='width:500px;height:330px;background-color: #E2CBAC;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;border: 4px ridge #DAA520;position:absolute;right:10px;top:100px; z-index:1000000;'><div class=\"popUpBar\"> <span class=\"ppspan\">Suggested Raiding Numbers</span> <button id=\"cfunkyX\" onclick=\"$('#cfunkydiv').remove();\" class=\"xbutton greenb\"><div id=\"xbuttondiv\"><div><div id=\"centxbuttondiv\"></div></div></div></button></div><div class=\"popUpWindow\">";
-        outtable+="<table><thead><th>Lvl</th><th>Estimated Loot</th><th>Vanqs/Rangers<br>druids</th><th>Sorcs</th><th>Praetors</th><th>Arbs/Horses</th></thead>";
-        outtable+="<tbody><tr><td>1</td><td>400</td><td>41</td><td>82</td><td>20</td><td>27</td></tr>";
+        //outtable+="<table><thead><th>Lvl</th><th>Estimated Loot</th><th>Vanqs/Rangers<br>druids</th><th>Sorcs</th><th>Praetors</th><th>Arbs/Horses</th></thead>";
+        outtable+="<table><tbody><tr><td>1</td><td>400</td><td>41</td><td>82</td><td>20</td><td>27</td></tr>";
         outtable+="<tr><td>2</td><td>1000</td><td>102</td><td>204</td><td>51</td><td>68</td></tr>";
         outtable+="<tr><td>3</td><td>4500</td><td>459</td><td>918</td><<td>230</td><td>306</td></tr>";
         outtable+="<tr><td>4</td><td>15000</td><td>1530</td><td>3060</td><td>765</td><td>1020</td></tr>";
