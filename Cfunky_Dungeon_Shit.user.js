@@ -8,22 +8,25 @@
 // @grant none
 // ==/UserScript==
 (function FunkyScript() {
-
+var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
+    var numbs=[0,0,0];
 
     $(document).ready(function() {
         $("#loccavwarconGo").click(function() {
-            createTable();
+            //createTable();
+            setTimeout(function(){getDugRows();}, 1000);
         });
-    });
-    $(document).ready(function() {
+
         $("#idluniwarconGo").click(function() {
             createTable();
+
         });
-    });
-    $(document).ready(function() {
+
         $("#raidDungGo").click(function() {
             createTable();
         });
+
+
     });
 
     function createTable() {
@@ -46,4 +49,69 @@
 
     }
 
+
+    function getDugRows() {
+        $("#dungloctab tr").each(function() {
+            var buttont=$(this).find( "button");
+            var buttonid=buttont.attr('id');
+            var tworow=$(this).find( "td:nth-child(2)").text();
+            var threerow=$(this).find( "td:nth-child(3)").text();
+            if(buttonid) {
+                var reference=buttonid.substring(8);
+                buttont.addClass('Cfunk');
+                buttont.attr('dd',reference);
+                buttont.attr('dt',tworow);
+                buttont.attr('dtt',threerow);
+            }
+        });
+        $(".Cfunk").unbind("click");
+        $(".Cfunk").click(function() {
+            var butid=$(this).attr('dd');
+            var dungtext=$(this).attr('dt');
+            var progress=$(this).attr('dtt');
+            var temp=dungtext.match(/\d+/gi);
+            numbs[0]=Number(temp);
+            temp=progress.match(/\d+/gi);
+            numbs[1]=Number(temp);
+            console.log(numbs[1]);
+            setTimeout(function(){
+
+                $(".tninput").each(function() {
+                    var trpinpid=$(this).attr('id');
+                    if(trpinpid=="rval2") {
+                        numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
+                        $('#'+trpinpid).val(numbs[2]);
+                    } else if(trpinpid=="rval3") {
+                        numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/20);
+                        $('#'+trpinpid).val(numbs[2]);
+                    } else if(trpinpid=="rval4") {
+                        numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
+                        $('#'+trpinpid).val(numbs[2]);
+                    } else if(trpinpid=="rval5") {
+                        numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
+                        $('#'+trpinpid).val(numbs[2]);
+                    } else if(trpinpid=="rval6") {
+                        numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/5);
+                        $('#'+trpinpid).val(numbs[2]);
+                    } else if(trpinpid=="rval9") {
+                        numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/20);
+                        $('#'+trpinpid).val(numbs[2]);
+                    } else if(trpinpid=="rval8") {
+                        numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/15);
+                        $('#'+trpinpid).val(numbs[2]);
+                    } else if(trpinpid=="rval10") {
+                        numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/15);
+                        $('#'+trpinpid).val(numbs[2]);
+                    } else if(trpinpid=="rval11") {
+                        numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
+                        $('#'+trpinpid).val(numbs[2]);
+                    }
+
+                });
+
+            }, 300);
+        });
+    }
+
 })();
+
