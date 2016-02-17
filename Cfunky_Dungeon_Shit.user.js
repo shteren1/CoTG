@@ -37,7 +37,7 @@
         outtable+="<tr><td>6</td><td>60000</td><td>6120</td><td>12240</td><td>3060</td><td>4080</td></tr>";
         outtable+="<tr><td>7</td><td>120000</td><td>12240</td><td>24480</td><td>6120</td><td>8160</td></tr>";
         outtable+="<tr><td>8</td><td>201000</td><td>20502</td><td>41004</td><td>10251</td><td>13668</td></tr>";
-        outtable+="<tr><td>9</td><td>288000</td><td>29376</td><td>58752</td><td>14688</td><td>19584</td></tr>";
+        outtable+="<tr><td>9</td><td>300000</td><td>30600</td><td>61200</td><td>15300</td><td>20400</td></tr>";
         outtable+="<tr><td>10</td><td>446000</td><td>45492</td><td>90984</td><td>22746</td><td>30328</td></tr>";
         outtable+="</tbody></table>";
         outtable+="</div></div>";
