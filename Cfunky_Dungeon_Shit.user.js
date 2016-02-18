@@ -16,6 +16,10 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
             //createTable();
             setTimeout(function(){getDugRows();}, 1000);
         });
+        
+        $("#raidmantab").click(function() {
+            setTimeout(function(){getDugRows();}, 1000);
+        });
 
         $("#idluniwarconGo").click(function() {
             createTable();
@@ -79,31 +83,44 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                 $(".tninput").each(function() {
                     var trpinpid=$(this).attr('id');
                     if(trpinpid=="rval2") {
+                        //rangers
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
                         $('#'+trpinpid).val(numbs[2]);
                     } else if(trpinpid=="rval3") {
+                        //triari
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/20);
                         $('#'+trpinpid).val(numbs[2]);
                     } else if(trpinpid=="rval4") {
+                        // vanqs
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
                         $('#'+trpinpid).val(numbs[2]);
                     } else if(trpinpid=="rval5") {
+                        //priestess
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
                         $('#'+trpinpid).val(numbs[2]);
                     } else if(trpinpid=="rval6") {
+                        //srocs
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/5);
                         $('#'+trpinpid).val(numbs[2]);
                     } else if(trpinpid=="rval9") {
+                        //praetors
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/20);
                         $('#'+trpinpid).val(numbs[2]);
                     } else if(trpinpid=="rval8") {
+                        //arbs
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/15);
                         $('#'+trpinpid).val(numbs[2]);
                     } else if(trpinpid=="rval10") {
+                        //horsemans
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/15);
                         $('#'+trpinpid).val(numbs[2]);
                     } else if(trpinpid=="rval11") {
+                        //druids
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
+                        $('#'+trpinpid).val(numbs[2]);
+                    } else if(trpinpid=="rval16") {
+                        //warships
+                        numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/3000);
                         $('#'+trpinpid).val(numbs[2]);
                     }
 
