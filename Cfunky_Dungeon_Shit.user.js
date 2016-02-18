@@ -53,11 +53,6 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
         $( "body" ).append(outtable);
         $( "#cfunkydiv" ).draggable({ handle: ".popUpBar" , containment: "window", scroll: false});
     }
-    function closewin() {
-        $('#cfunkydiv').remove();
-        isopen=false;
-        console.log("closed window");
-    };
     function getDugRows() {
         $("#dungloctab tr").each(function() {
             var buttont=$(this).find( "button");
