@@ -10,6 +10,7 @@
 (function FunkyScript() {
 var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
     var numbs=[0,0,0];
+    var isopen=false;
 
     $(document).ready(function() {
         $("#loccavwarconGo").click(function() {
@@ -22,19 +23,20 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
         });
 
         $("#idluniwarconGo").click(function() {
-            createTable();
-
+            if (!isopen)
+            { isopen=true;
+                createTable();}
         });
 
         $("#raidDungGo").click(function() {
-            createTable();
+            if (!isopen)
+            {isopen=true;
+                createTable();}
         });
-
-
     });
 
     function createTable() {
-        var outtable="<div id='cfunkydiv' style='width:500px;height:330px;background-color: #E2CBAC;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;border: 4px ridge #DAA520;position:absolute;right:10px;top:100px; z-index:1000000;'><div class=\"popUpBar\"> <span class=\"ppspan\">Suggested Raiding Numbers</span> <button id=\"cfunkyX\" onclick=\"$('#cfunkydiv').remove();\" class=\"xbutton greenb\"><div id=\"xbuttondiv\"><div><div id=\"centxbuttondiv\"></div></div></div></button></div><div class=\"popUpWindow\">";
+        var outtable="<div id='cfunkydiv' style='width:500px;height:330px;background-color: #E2CBAC;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;border: 4px ridge #DAA520;position:absolute;right:10px;top:100px; z-index:1000000;'><div class=\"popUpBar\"> <span class=\"ppspan\">Suggested Raiding Numbers</span> <button id=\"cfunkyX\" onclick=\"$('#cfunkydiv').remove();isopen=false\" class=\"xbutton greenb\"><div id=\"xbuttondiv\"><div><div id=\"centxbuttondiv\"></div></div></div></button></div><div class=\"popUpWindow\">";
         outtable+="<table><thead><th>Lvl</th><th>Estimated Loot</th><th>Vanqs/Rangers<br>druids</th><th>Sorcs</th><th>Praetors</th><th>Arbs/Horses</th></thead>";
         outtable+="<tbody><tr><td>1</td><td>400</td><td>41</td><td>82</td><td>20</td><td>27</td></tr>";
         outtable+="<tr><td>2</td><td>1000</td><td>102</td><td>204</td><td>51</td><td>68</td></tr>";
@@ -50,9 +52,7 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
         outtable+="</div></div>";
         $( "body" ).append(outtable);
         $( "#cfunkydiv" ).draggable({ handle: ".popUpBar" , containment: "window", scroll: false});
-
     }
-
 
     function getDugRows() {
         $("#dungloctab tr").each(function() {
@@ -118,17 +118,18 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                         //druids
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
                         $('#'+trpinpid).val(numbs[2]);
+                    } else if(trpinpid=="rval15") {
+                        //stinger
+                        numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/1500);
+                        $('#'+trpinpid).val(numbs[2]);
                     } else if(trpinpid=="rval16") {
                         //warships
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/3000);
                         $('#'+trpinpid).val(numbs[2]);
-                    }
-
+                    } 
                 });
-
             }, 300);
         });
     }
-
 })();
 
