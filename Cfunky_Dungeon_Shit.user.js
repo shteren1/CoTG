@@ -119,6 +119,10 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                         //druids
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
                         $('#'+trpinpid).val(numbs[2]);
+                    } else if(trpinpid=="rval14") {
+                        //galley
+                        numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/1000);
+                        $('#'+trpinpid).val(numbs[2]);
                     } else if(trpinpid=="rval15") {
                         //stinger
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/1500);
