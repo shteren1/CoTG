@@ -21,10 +21,10 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
             setTimeout(function(){getDugRows();}, 1000);
         });
 
-        $("#idluniwarconGo").click(function() {
+       /* $("#idluniwarconGo").click(function() {
             createTable();
 
-        });
+        });*/
 
         $("#raidDungGo").click(function() {
             createTable();
