@@ -41,8 +41,10 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
     function createTable() {
         $('#cfunkydiv').remove();
         var ptworow=$("#Progress").html();
-		var plevorow=$("#dunglevelregion").html();
-		var ptropneed = Math.ceil(loot[plevorow]*((100-ptworow)*0.008+1)/10);
+        if (ptworow==0)
+        {ptworow=100;}
+	var plevorow=$("#dunglevelregion").html();
+	var ptropneed = Math.ceil(loot[plevorow]*((100-ptworow)*0.008+1)/10);
         var outtable="<div id='cfunkydiv' style='width:500px;height:330px;background-color: #E2CBAC;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;border: 4px ridge #DAA520;position:absolute;right:10px;top:100px; z-index:1000000;'><div class=\"popUpBar\"> <span class=\"ppspan\">Suggested Raiding Numbers - Caver progress "+ptworow+"%</span> <button id=\"cfunkyX\" onclick=\"$('#cfunkydiv').remove();\" class=\"xbutton greenb\"><div id=\"xbuttondiv\"><div><div id=\"centxbuttondiv\"></div></div></div></button></div><div class=\"popUpWindow\">";
         outtable+="<table><thead><th>Lvl</th><th>Estimated Loot</th><th>Vanqs/Rangers<br>druids</th><th>Sorcs</th><th>Praetors</th><th>Arbs/Horses</th></thead>";
         outtable+="<tbody><tr><td>1</td><td>400</td><td>"+Math.ceil(loot[1]*((100-ptworow)*0.008+1)/10)+"</td><td>"+Math.ceil(loot[1]*((100-ptworow)*0.008+1)/5)+"</td><td>"+Math.ceil(loot[1]*((100-ptworow)*0.008+1)/20)+"</td><td>"+Math.ceil(loot[1]*((100-ptworow)*0.008+1)/15)+"</td></tr>";
