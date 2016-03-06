@@ -11,7 +11,7 @@
 var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
     var numbs=[0,0,0];
 
-    /*$(document).ready(function() {
+    $(document).ready(function() {
         $("#loccavwarconGo").click(function() {
             //createTable();
             setTimeout(function(){getDugRows();}, 1000);
@@ -20,22 +20,19 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
         $("#raidmantab").click(function() {
             setTimeout(function(){getDugRows();}, 1000);
         });
-    });*/
+    });
 
-       /* $("#idluniwarconGo").click(function() {
-            createTable();
 
-        });*/
 
         document.getElementById('raidDungGo').onclick = function() {
             createTable();
-        };	
-        document.getElementById('raidmantab').onclick = function() {
+        };  
+        /*document.getElementById('raidmantab').onclick = function() {
             createTable();
         };
         document.getElementById('loccavwarconGo').onclick = function() {
             createTable();
-        };	
+        };  */
 
 
     function createTable() {
@@ -78,9 +75,11 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                 buttont.attr('dt',tworow);
                 buttont.attr('dtt',threerow);
             }
-        });
-        $(".Cfunk").unbind("click");
-        $(".Cfunk").click(function() {
+        
+        
+        $(buttont).click(function() {
+            var count=Number($('.splitRaid').children('option').length)-1;
+            var troopshome=0;
             var butid=$(this).attr('dd');
             var dungtext=$(this).attr('dt');
             var progress=$(this).attr('dtt');
@@ -95,57 +94,109 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                     var trpinpid=$(this).attr('id');
                     if(trpinpid=="rval2") {
                         //rangers
+                        troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
                         $('#'+trpinpid).val(numbs[2]);
+                        if((Number(troopshome)/Number(numbs[2]))<count) {
+                            count=Number(troopshome)/Number(numbs[2]);
+                        }
+
                     } else if(trpinpid=="rval3") {
                         //triari
+                        troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/20);
                         $('#'+trpinpid).val(numbs[2]);
+                        if((Number(troopshome)/Number(numbs[2]))<count) {
+                            count=Number(troopshome)/Number(numbs[2]);
+                        }
                     } else if(trpinpid=="rval4") {
                         // vanqs
+                        troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
                         $('#'+trpinpid).val(numbs[2]);
+                        if((Number(troopshome)/Number(numbs[2]))<count) {
+                            count=Number(troopshome)/Number(numbs[2]);
+                        }
                     } else if(trpinpid=="rval5") {
                         //priestess
+                        troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
                         $('#'+trpinpid).val(numbs[2]);
+                        if((Number(troopshome)/Number(numbs[2]))<count) {
+                            count=Number(troopshome)/Number(numbs[2]);
+                        }
                     } else if(trpinpid=="rval6") {
                         //srocs
+                        troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/5);
                         $('#'+trpinpid).val(numbs[2]);
+                        if((Number(troopshome)/Number(numbs[2]))<count) {
+                            count=Number(troopshome)/Number(numbs[2]);
+                        }
                     } else if(trpinpid=="rval9") {
                         //praetors
+                        troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/20);
                         $('#'+trpinpid).val(numbs[2]);
+                        if((Number(troopshome)/Number(numbs[2]))<count) {
+                            count=Number(troopshome)/Number(numbs[2]);
+                        }
                     } else if(trpinpid=="rval8") {
                         //arbs
+                        troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/15);
                         $('#'+trpinpid).val(numbs[2]);
+                        if((Number(troopshome)/Number(numbs[2]))<count) {
+                            count=Number(troopshome)/Number(numbs[2]);
+                        }
                     } else if(trpinpid=="rval10") {
                         //horsemans
+                        troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/15);
                         $('#'+trpinpid).val(numbs[2]);
+                        if((Number(troopshome)/Number(numbs[2]))<count) {
+                            count=Number(troopshome)/Number(numbs[2]);
+                        }
                     } else if(trpinpid=="rval11") {
                         //druids
+                        troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
                         $('#'+trpinpid).val(numbs[2]);
+                        if((Number(troopshome)/Number(numbs[2]))<count) {
+                            count=Number(troopshome)/Number(numbs[2]);
+                        }
                     } else if(trpinpid=="rval14") {
                         //galley
+                        troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/1000);
                         $('#'+trpinpid).val(numbs[2]);
+                        if((Number(troopshome)/Number(numbs[2]))<count) {
+                            count=Number(troopshome)/Number(numbs[2]);
+                        }
                     } else if(trpinpid=="rval15") {
                         //stinger
+                        troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/1500);
                         $('#'+trpinpid).val(numbs[2]);
+                        if((Number(troopshome)/Number(numbs[2]))<count) {
+                            count=Number(troopshome)/Number(numbs[2]);
+                        }
                     } else if(trpinpid=="rval16") {
                         //warships
+                        troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/3000);
                         $('#'+trpinpid).val(numbs[2]);
+                        if((Number(troopshome)/Number(numbs[2]))<count) {
+                            count=Number(troopshome)/Number(numbs[2]);
+                        }
                     }
 
                 });
-
+                console.log("count:"+count);
+                count=Math.floor(count);
+                setTimeout(function(){$('.splitRaid').val(count);}, 500);
             }, 300);
+        });
         });
     }
 
