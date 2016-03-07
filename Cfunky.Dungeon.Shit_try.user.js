@@ -36,7 +36,7 @@
     });
     
     document.getElementById('raidDungGo').onclick = function() {
-            //createTable();
+        createTable();
         setTimeout(function(){setbossloot();}, 1000);
         }; 
     function errormsgBR(a, b) {
