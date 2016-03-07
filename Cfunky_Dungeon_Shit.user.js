@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Cfunky Dungeon Shit
 // @namespace https://github.com/shteren1/CoTG/blob/master/Cfunky_Dungeon_Shit.user.js
-// @version 0.2
+// @version 0.3
 // @description enter something useful
 // @author You
 // @match https://w1.crownofthegods.com/World00.php
