@@ -11,7 +11,7 @@
 var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
 var numbs=[0,0,0];
 var ttloot=[0,0,10,20,10,10,5,0,15,20,15,10,0,0,1000,1500,3000];
-// 2 rangers, 3 triari, 4 vanqs, 5 priestess, 6 sorc, 8 arbs,9 praetors, 10 horses, 11 druids, 14 galley, 15 stinger, 16 warship
+// 2 rangers, 3 triari, 4 priestess, 5 vanqs, 6 sorc, 8 arbs,9 praetors, 10 horses, 11 druids, 14 galley, 15 stinger, 16 warship
 
     $(document).ready(function() {
         $("#loccavwarconGo").click(function() {
