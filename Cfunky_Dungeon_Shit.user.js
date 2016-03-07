@@ -80,6 +80,8 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
         $(buttont).click(function() {
             var count=Number($('.splitRaid').children('option').length)-1;
             var troopshome=0;
+            //var ttc=0;
+            //var tt="non";
             var butid=$(this).attr('dd');
             var dungtext=$(this).attr('dt');
             var progress=$(this).attr('dtt');
@@ -91,12 +93,16 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
             setTimeout(function(){
 
                 $(".tninput").each(function() {
+                    //ttc+=1;
                     var trpinpid=$(this).attr('id');
+                    //tt[ttc]=trpinpid;
                     if(trpinpid=="rval2") {
                         //rangers
                         troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
+                        if(Number(troopshome)>numbs[2]) {
                         $('#'+trpinpid).val(numbs[2]);
+                        }
                         if((Number(troopshome)/Number(numbs[2]))<count) {
                             count=Number(troopshome)/Number(numbs[2]);
                         }
@@ -105,7 +111,9 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                         //triari
                         troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/20);
+                        if(Number(troopshome)>numbs[2]) {
                         $('#'+trpinpid).val(numbs[2]);
+                        }
                         if((Number(troopshome)/Number(numbs[2]))<count) {
                             count=Number(troopshome)/Number(numbs[2]);
                         }
@@ -113,7 +121,9 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                         // vanqs
                         troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
+                        if(Number(troopshome)>numbs[2]) {
                         $('#'+trpinpid).val(numbs[2]);
+                        }
                         if((Number(troopshome)/Number(numbs[2]))<count) {
                             count=Number(troopshome)/Number(numbs[2]);
                         }
@@ -121,7 +131,9 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                         //priestess
                         troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
+                        if(Number(troopshome)>numbs[2]) {
                         $('#'+trpinpid).val(numbs[2]);
+                        }
                         if((Number(troopshome)/Number(numbs[2]))<count) {
                             count=Number(troopshome)/Number(numbs[2]);
                         }
@@ -129,7 +141,9 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                         //srocs
                         troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/5);
+                        if(Number(troopshome)>numbs[2]) {
                         $('#'+trpinpid).val(numbs[2]);
+                        }
                         if((Number(troopshome)/Number(numbs[2]))<count) {
                             count=Number(troopshome)/Number(numbs[2]);
                         }
@@ -137,7 +151,9 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                         //praetors
                         troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/20);
+                        if(Number(troopshome)>numbs[2]) {
                         $('#'+trpinpid).val(numbs[2]);
+                        }
                         if((Number(troopshome)/Number(numbs[2]))<count) {
                             count=Number(troopshome)/Number(numbs[2]);
                         }
@@ -145,7 +161,9 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                         //arbs
                         troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/15);
+                        if(Number(troopshome)>numbs[2]) {
                         $('#'+trpinpid).val(numbs[2]);
+                        }
                         if((Number(troopshome)/Number(numbs[2]))<count) {
                             count=Number(troopshome)/Number(numbs[2]);
                         }
@@ -153,7 +171,9 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                         //horsemans
                         troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/15);
+                        if(Number(troopshome)>numbs[2]) {
                         $('#'+trpinpid).val(numbs[2]);
+                        }
                         if((Number(troopshome)/Number(numbs[2]))<count) {
                             count=Number(troopshome)/Number(numbs[2]);
                         }
@@ -161,7 +181,9 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                         //druids
                         troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/10);
+                        if(Number(troopshome)>numbs[2]) {
                         $('#'+trpinpid).val(numbs[2]);
+                        }
                         if((Number(troopshome)/Number(numbs[2]))<count) {
                             count=Number(troopshome)/Number(numbs[2]);
                         }
@@ -169,7 +191,9 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                         //galley
                         troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/1000);
+                        if(Number(troopshome)>numbs[2]) {
                         $('#'+trpinpid).val(numbs[2]);
+                        }
                         if((Number(troopshome)/Number(numbs[2]))<count) {
                             count=Number(troopshome)/Number(numbs[2]);
                         }
@@ -177,7 +201,9 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                         //stinger
                         troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/1500);
+                        if(Number(troopshome)>numbs[2]) {
                         $('#'+trpinpid).val(numbs[2]);
+                        }
                         if((Number(troopshome)/Number(numbs[2]))<count) {
                             count=Number(troopshome)/Number(numbs[2]);
                         }
@@ -185,7 +211,9 @@ var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
                         //warships
                         troopshome=$('#'+trpinpid).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/3000);
+                        if(Number(troopshome)>numbs[2]) {
                         $('#'+trpinpid).val(numbs[2]);
+                        }
                         if((Number(troopshome)/Number(numbs[2]))<count) {
                             count=Number(troopshome)/Number(numbs[2]);
                         }
