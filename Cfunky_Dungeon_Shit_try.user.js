@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name Cfunky Dungeon Shit try
-// @namespace https://github.com/shteren1/CoTG/blob/master/Cfunky_Dungeon_Shit.user.js
+// @namespace https://github.com/shteren1/CoTG/blob/master/Cfunky_Dungeon_Shit_try.user.js
 // @version 0.2
 // @description enter something useful
 // @author You
@@ -36,7 +36,7 @@
     });
     
     document.getElementById('raidDungGo').onclick = function() {
-        createTable();
+            //createTable();
         setTimeout(function(){setbossloot();}, 1000);
         }; 
     function errormsgBR(a, b) {
@@ -100,21 +100,25 @@
             var bosslvl=$("#dunglevelregion").html();
             var bosstype=$("#dungtypespot").html();
             var temp=$(this).find("td:nth-child(3)").text();
-            var troops=temp.match(/\d+/gi);
+            var n = temp.search("/");
+            temp=temp.substring(0,n);
+            temp=temp.replace(",","");
+            var troops=Number(temp);
+            //console.log(troops);
             var temp1=$(this).attr('id');
             var tt=Number(temp1.match(/\d+/gi));
             //console.log(temp1);
             if (tt!==7) {
-                if (troops[0]>0) {
+                if (troops>0) {
                     if (bosstype=="Triton") {
                         if (isart[tt]) {
                             var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                            if (amount<troops[0]) {
+                            if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
                             } else {errorgo(message);}
                         } else {
                             var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                            if (amount<troops[0]) {
+                            if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
                             } else {errorgo(message);}
                         }
@@ -122,12 +126,12 @@
                     if (bosstype=="Cyclops") {
                         if (iscav[tt]) {
                             var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                            if (amount<troops[0]) {
+                            if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
                             } else {errorgo(message);}
                         } else {
                             var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                            if (amount<troops[0]) {
+                            if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
                             } else {errorgo(message);}
                         }
@@ -135,12 +139,12 @@
                     if (bosstype=="Andar's Colosseum Challenge") {
                         if (iscav[tt]) {
                             var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                            if (amount<troops[0]) {
+                            if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
                             } else {errorgo(message);}
                         } else {
                             var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                            if (amount<troops[0]) {
+                            if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
                             } else {errorgo(message);}
                         }
@@ -148,12 +152,12 @@
                     if (bosstype=="Dragon") {
                         if (isinf[tt]) {
                             var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                            if (amount<troops[0]) {
+                            if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
                             } else {errorgo(message);}
                         } else {
                             var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                            if (amount<troops[0]) {
+                            if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
                             } else {errorgo(message);}
                         }
@@ -161,12 +165,12 @@
                     if (bosstype=="Romulus and Remus") {
                         if (isinf[tt]) {
                             var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                            if (amount<troops[0]) {
+                            if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
                             } else {errorgo(message);}
                         } else {
                             var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                            if (amount<troops[0]) {
+                            if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
                             } else {errorgo(message);}
                         }
@@ -174,12 +178,14 @@
                     if (bosstype=="Gorgon") {
                         if (ismgc[tt]) {
                             var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                            if (amount<troops[0]) {
+                            //console.log(amount);
+                            //console.log(troops);
+                            if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
                             } else {errorgo(message);}
                         } else {
                             var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                            if (amount<troops[0]) {
+                            if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
                             } else {errorgo(message);}
                         }
@@ -187,12 +193,12 @@
                     if (bosstype=="GM Gordy") {
                         if (ismgc[tt]) {
                             var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                            if (amount<troops[0]) {
+                            if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
                             } else {errorgo(message);}
                         } else {
                             var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                            if (amount<troops[0]) {
+                            if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
                             } else {errorgo(message);}
                         }
@@ -232,7 +238,7 @@
             numbs[0]=Number(temp);
             temp=progress.match(/\d+/gi);
             numbs[1]=Number(temp);
-            console.log(numbs[1]);
+            //console.log(numbs[1]);
             setTimeout(function(){
 
                 $(".tninput").each(function() {
@@ -241,7 +247,7 @@
                     tt[ttc-1]=trpinpid;
                     ttm[ttc-1]=Number(trpinpid.match(/\d+/gi));
                 });
-                console.log(ttc);
+                //console.log(ttc);
                 console.log(ttm);
                 if(ttc==1) {
                     troopshome[0]=$('#rval'+ttm[0]).val();
