@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name Cfunky Dungeon Shit try
-// @namespace https://github.com/shteren1/CoTG/blob/master/Cfunky_Dungeon_Shit.user_try.js
+// @namespace https://github.com/shteren1/CoTG/blob/master/Cfunky_Dungeon_Shit.user.js
 // @version 0.2
 // @description enter something useful
 // @author You
@@ -8,10 +8,18 @@
 // @grant none
 // ==/UserScript==
 (function FunkyScript() {
-var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
-var numbs=[0,0,0];
-var ttloot=[0,0,10,20,10,10,5,0,15,20,15,10,0,0,1000,1500,3000];
-// 2 rangers, 3 triari, 4 priestess, 5 vanqs, 6 sorc, 8 arbs,9 praetors, 10 horses, 11 druids, 14 galley, 15 stinger, 16 warship
+    var loot=[0,400,1000,4500,15000,33000,60000,120000,201000,300000,446000];
+    var bossdef=[625,3750,25000,50000,125000,187500,250000,375000,562000,750000];
+    var numbs=[0,0,0];
+    var ttloot=[0,0,10,20,10,10,5,0,15,20,15,10,0,0,1000,1500,3000];
+    var ttattack=[0,0,30,10,25,50,70,0,40,60,90,120,0,0,3000,1200,12000];
+    var iscav=[0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0];
+    var isinf=[0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0];
+    var ismgc=[0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0];
+    var isart=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1];
+        
+// trooptypes 2 rangers, 3 triari, 4 priestess, 5 vanqs, 6 sorc, 8 arbs,9 praetors, 10 horses, 11 druids, 14 galley, 15 stinger, 16 warship
+    
 
     $(document).ready(function() {
         $("#loccavwarconGo").click(function() {
@@ -22,19 +30,44 @@ var ttloot=[0,0,10,20,10,10,5,0,15,20,15,10,0,0,1000,1500,3000];
         $("#raidmantab").click(function() {
             setTimeout(function(){getDugRows();}, 1000);
         });
+        //$("#raidDungGo").click(function() {
+        //    setTimeout(function(){setbossloot();}, 1000);
+        //});
     });
-
-
-
-        document.getElementById('raidDungGo').onclick = function() {
-            createTable();
-        };  
-        /*document.getElementById('raidmantab').onclick = function() {
-            createTable();
-        };
-        document.getElementById('loccavwarconGo').onclick = function() {
-            createTable();
-        };  */
+    
+    document.getElementById('raidDungGo').onclick = function() {
+            //createTable();
+        setTimeout(function(){setbossloot();}, 1000);
+        }; 
+    function errormsgBR(a, b) {
+        $(a).show();
+        $(b).animate({ opacity: 1, bottom: "+10px" }, 'slow');
+        errormsgBRhide(a, b);
+    }
+    
+    function errormsgBRhide(a, b) {
+        setTimeout(function(){ 
+            $(b).animate({ opacity: 0, bottom: "-10px" }, 'slow');
+            $(a).fadeOut("slow");
+        }, 5000);
+        setTimeout(function(){ 
+            $(a).remove();
+        }, 6000);
+    }
+    
+    var errmBR=0;
+    var message="You do not have enough troops!";
+    
+    function errorgo(j) {
+        var errormsgs;
+        errmBR = errmBR+1;
+        var b = 'errBR' +errmBR;
+        var c = '#' +b;
+        var d = '#' +b+ ' div';
+        errormsgs = '<tr ID = "' +b+ '"><td><div class = "errBR">' +j+ '<div></td></tr>';
+        $("#errorBRpopup").append(errormsgs);
+        errormsgBR(c, d);
+    }
 
 
     function createTable() {
@@ -62,6 +95,113 @@ var ttloot=[0,0,10,20,10,10,5,0,15,20,15,10,0,0,1000,1500,3000];
         $( "#cfunkydiv" ).draggable({ handle: ".popUpBar" , containment: "window", scroll: false});
 
     }
+    function setbossloot() {
+        $("#raidingTable tr").each(function() {
+            var bosslvl=$("#dunglevelregion").html();
+            var bosstype=$("#dungtypespot").html();
+            var temp=$(this).find("td:nth-child(3)").text();
+            var troops=temp.match(/\d+/gi);
+            var temp1=$(this).attr('id');
+            var tt=Number(temp1.match(/\d+/gi));
+            //console.log(temp1);
+            if (tt!==7) {
+                if (troops[0]>0) {
+                    if (bosstype=="Triton") {
+                        if (isart[tt]) {
+                            var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
+                            if (amount<troops[0]) {
+                                $('#raidIP'+tt).val(amount);
+                            } else {errorgo(message);}
+                        } else {
+                            var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
+                            if (amount<troops[0]) {
+                                $('#raidIP'+tt).val(amount);
+                            } else {errorgo(message);}
+                        }
+                    }
+                    if (bosstype=="Cyclops") {
+                        if (iscav[tt]) {
+                            var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
+                            if (amount<troops[0]) {
+                                $('#raidIP'+tt).val(amount);
+                            } else {errorgo(message);}
+                        } else {
+                            var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
+                            if (amount<troops[0]) {
+                                $('#raidIP'+tt).val(amount);
+                            } else {errorgo(message);}
+                        }
+                    }
+                    if (bosstype=="Andar's Colosseum Challenge") {
+                        if (iscav[tt]) {
+                            var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
+                            if (amount<troops[0]) {
+                                $('#raidIP'+tt).val(amount);
+                            } else {errorgo(message);}
+                        } else {
+                            var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
+                            if (amount<troops[0]) {
+                                $('#raidIP'+tt).val(amount);
+                            } else {errorgo(message);}
+                        }
+                    }
+                    if (bosstype=="Dragon") {
+                        if (isinf[tt]) {
+                            var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
+                            if (amount<troops[0]) {
+                                $('#raidIP'+tt).val(amount);
+                            } else {errorgo(message);}
+                        } else {
+                            var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
+                            if (amount<troops[0]) {
+                                $('#raidIP'+tt).val(amount);
+                            } else {errorgo(message);}
+                        }
+                    }
+                    if (bosstype=="Romulus and Remus") {
+                        if (isinf[tt]) {
+                            var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
+                            if (amount<troops[0]) {
+                                $('#raidIP'+tt).val(amount);
+                            } else {errorgo(message);}
+                        } else {
+                            var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
+                            if (amount<troops[0]) {
+                                $('#raidIP'+tt).val(amount);
+                            } else {errorgo(message);}
+                        }
+                    }
+                    if (bosstype=="Gorgon") {
+                        if (ismgc[tt]) {
+                            var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
+                            if (amount<troops[0]) {
+                                $('#raidIP'+tt).val(amount);
+                            } else {errorgo(message);}
+                        } else {
+                            var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
+                            if (amount<troops[0]) {
+                                $('#raidIP'+tt).val(amount);
+                            } else {errorgo(message);}
+                        }
+                    }
+                    if (bosstype=="GM Gordy") {
+                        if (ismgc[tt]) {
+                            var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
+                            if (amount<troops[0]) {
+                                $('#raidIP'+tt).val(amount);
+                            } else {errorgo(message);}
+                        } else {
+                            var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
+                            if (amount<troops[0]) {
+                                $('#raidIP'+tt).val(amount);
+                            } else {errorgo(message);}
+                        }
+                    }
+                }
+            }
+            });
+    }
+                                   
 
 
     function getDugRows() {
@@ -109,7 +249,7 @@ var ttloot=[0,0,10,20,10,10,5,0,15,20,15,10,0,0,1000,1500,3000];
                     numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[0]]);
                     if(Number(troopshome)>numbs[2]) {
                         $('#rval'+ttm[0]).val(numbs[2]);
-                    }
+                    } else {errorgo(message);}
                     if((Number(troopshome)/Number(numbs[2]))<count) {
                         count=Number(troopshome)/Number(numbs[2]);
                     }
@@ -120,7 +260,7 @@ var ttloot=[0,0,10,20,10,10,5,0,15,20,15,10,0,0,1000,1500,3000];
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[0]]);
                         if(Number(troopshome)>numbs[2]) {
                             $('#rval'+ttm[0]).val(numbs[2]);
-                        }
+                        } else {errorgo(message);}
                         if((Number(troopshome)/Number(numbs[2]))<count) {
                             count=Number(troopshome)/Number(numbs[2]);
                         }
@@ -134,7 +274,7 @@ var ttloot=[0,0,10,20,10,10,5,0,15,20,15,10,0,0,1000,1500,3000];
                         console.log(numbs[2]);
                         if(Number(troopshome[0])>numbs[2]) {
                             $('#rval'+ttm[0]).val(numbs[2]);
-                        }
+                        } else {errorgo(message);}
                         if((Number(troopshome[0])/Number(numbs[2]))<count) {
                             count=Number(troopshome[0])/Number(numbs[2]);
                         }
@@ -154,7 +294,7 @@ var ttloot=[0,0,10,20,10,10,5,0,15,20,15,10,0,0,1000,1500,3000];
                         console.log(numbs[2]);
                         if(Number(troopshome[0])>numbs[2]) {
                             $('#rval'+ttm[0]).val(numbs[2]);
-                        }
+                        } else {errorgo(message);}
                         if((Number(troopshome[0])/Number(numbs[2]))<count) {
                             count=Number(troopshome[0])/Number(numbs[2]);
                         }
@@ -162,6 +302,7 @@ var ttloot=[0,0,10,20,10,10,5,0,15,20,15,10,0,0,1000,1500,3000];
                         if(Number(troopshome[1])>numbs[2]) {
                             $('#rval'+ttm[1]).val(numbs[2]);
                         }
+                        $('#rval'+ttm[2]).val(0);
                     }
                     else {
                         troopshome[0]=$('#rval'+ttm[0]).val();
@@ -175,7 +316,7 @@ var ttloot=[0,0,10,20,10,10,5,0,15,20,15,10,0,0,1000,1500,3000];
                         console.log(numbs[2]);
                         if(Number(troopshome[0])>numbs[2]) {
                             $('#rval'+ttm[0]).val(numbs[2]);
-                        }
+                        } else {errorgo(message);}
                         if((Number(troopshome[0])/Number(numbs[2]))<count) {
                             count=Number(troopshome[0])/Number(numbs[2]);
                         }
