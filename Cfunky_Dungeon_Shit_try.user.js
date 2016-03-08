@@ -305,7 +305,7 @@
                     ttm[ttc-1]=Number(trpinpid.match(/\d+/gi));
                 });
                 //console.log(ttc);
-                console.log(ttm);
+                //console.log(ttm);
                 if(ttc==1) {
                     troopshome[0]=$('#rval'+ttm[0]).val();
                     //console.log(troopshome);
@@ -338,21 +338,35 @@
                         troopshome[0]=$('#rval'+ttm[0]).val();
                         troopshome[1]=$('#rval'+ttm[1]).val();
                         var ratio=[troopshome[0]*ttloot[ttm[0]]/(troopshome[1]*ttloot[ttm[1]]+troopshome[0]*ttloot[ttm[0]]),troopshome[1]*ttloot[ttm[1]]/(troopshome[1]*ttloot[ttm[1]]+troopshome[0]*ttloot[ttm[0]])];
-                        console.log(ratio);
+                        //console.log(ratio);
                         numbs[2]=Math.ceil(ratio[0]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[0]]);
-                        console.log(numbs[2]);
-                        if(Number(troopshome[0])>numbs[2]) {
-                            $('#rval'+ttm[0]).val(numbs[2]);
-                        }  else {
-                                    message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
-                                    errorgo(message);
-                                }
-                        if((Number(troopshome[0])/Number(numbs[2]))<count) {
-                            count=Number(troopshome[0])/Number(numbs[2]);
+                        //console.log(numbs[2]);
+                        if (troopshome[0]>0) {
+                            if(Number(troopshome[0])>numbs[2]) {
+                                $('#rval'+ttm[0]).val(numbs[2]);
+                            }  else {
+                                message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
+                                errorgo(message);
+                            }
+                            if((Number(troopshome[0])/Number(numbs[2]))<count) {
+                                count=Number(troopshome[0])/Number(numbs[2]);
+                            }  
+                            numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
+                            if(Number(troopshome[1])>numbs[2]) {
+                                $('#rval'+ttm[1]).val(numbs[2]);
+                            }
                         }
-                        numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
-                        if(Number(troopshome[1])>numbs[2]) {
-                            $('#rval'+ttm[1]).val(numbs[2]);
+                        else {
+                            numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
+                            if(Number(troopshome[1])>numbs[2]) {
+                                $('#rval'+ttm[1]).val(numbs[2]);
+                            } else {
+                                message="Error, you need at least " + numbs[2] + " " + ttname[ttm[1]]+"!";
+                                errorgo(message);
+                            }
+                            if((Number(troopshome[1])/Number(numbs[2]))<count) {
+                                count=Number(troopshome[1])/Number(numbs[2]);
+                            }
                         }
                     }
                 }
@@ -361,21 +375,35 @@
                         troopshome[0]=$('#rval'+ttm[0]).val();
                         troopshome[1]=$('#rval'+ttm[1]).val();
                         var ratio=[troopshome[0]*ttloot[ttm[0]]/(troopshome[1]*ttloot[ttm[1]]+troopshome[0]*ttloot[ttm[0]]),troopshome[1]*ttloot[ttm[1]]/(troopshome[1]*ttloot[ttm[1]]+troopshome[0]*ttloot[ttm[0]])];
-                        console.log(ratio);
+                        //console.log(ratio);
                         numbs[2]=Math.ceil(ratio[0]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[0]]);
-                        console.log(numbs[2]);
-                        if(Number(troopshome[0])>numbs[2]) {
-                            $('#rval'+ttm[0]).val(numbs[2]);
-                        } else {
-                                    message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
-                                    errorgo(message);
-                                }
-                        if((Number(troopshome[0])/Number(numbs[2]))<count) {
-                            count=Number(troopshome[0])/Number(numbs[2]);
+                        //console.log(numbs[2]);
+                        if (troopshome[0]>0) {
+                            if(Number(troopshome[0])>numbs[2]) {
+                                $('#rval'+ttm[0]).val(numbs[2]);
+                            }  else {
+                                message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
+                                errorgo(message);
+                            }
+                            if((Number(troopshome[0])/Number(numbs[2]))<count) {
+                                count=Number(troopshome[0])/Number(numbs[2]);
+                            }  
+                            numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
+                            if(Number(troopshome[1])>numbs[2]) {
+                                $('#rval'+ttm[1]).val(numbs[2]);
+                            }
                         }
-                        numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
-                        if(Number(troopshome[1])>numbs[2]) {
-                            $('#rval'+ttm[1]).val(numbs[2]);
+                        else {
+                            numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
+                            if(Number(troopshome[1])>numbs[2]) {
+                                $('#rval'+ttm[1]).val(numbs[2]);
+                            } else {
+                                message="Error, you need at least " + numbs[2] + " " + ttname[ttm[1]]+"!";
+                                errorgo(message);
+                            }
+                            if((Number(troopshome[1])/Number(numbs[2]))<count) {
+                                count=Number(troopshome[1])/Number(numbs[2]);
+                            }
                         }
                         $('#rval'+ttm[2]).val(0);
                     }
@@ -386,26 +414,55 @@
                         var ratio=[troopshome[0]*ttloot[ttm[0]]/(troopshome[2]*ttloot[ttm[2]]+troopshome[1]*ttloot[ttm[1]]+troopshome[0]*ttloot[ttm[0]])];
                         ratio[1]=troopshome[1]*ttloot[ttm[1]]/(troopshome[2]*ttloot[ttm[2]]+troopshome[1]*ttloot[ttm[1]]+troopshome[0]*ttloot[ttm[0]]);
                         ratio[2]=troopshome[2]*ttloot[ttm[2]]/(troopshome[2]*ttloot[ttm[2]]+troopshome[1]*ttloot[ttm[1]]+troopshome[0]*ttloot[ttm[0]]);
-                        console.log(ratio);
-                        numbs[2]=Math.ceil(ratio[0]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[0]]);
-                        console.log(numbs[2]);
-                        if(Number(troopshome[0])>numbs[2]) {
-                            $('#rval'+ttm[0]).val(numbs[2]);
+                        //console.log(ratio);
+                        if (troopshome[0]>0) {
+                            numbs[2]=Math.ceil(ratio[0]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[0]]);
+                            console.log(numbs[2]);
+                            if(Number(troopshome[0])>numbs[2]) {
+                                $('#rval'+ttm[0]).val(numbs[2]);
+                            } else {
+                                message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
+                                errorgo(message);
+                            }
+                            if((Number(troopshome[0])/Number(numbs[2]))<count) {
+                                count=Number(troopshome[0])/Number(numbs[2]);
+                            }
+                            numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
+                            if(Number(troopshome[1])>numbs[2]) {
+                                $('#rval'+ttm[1]).val(numbs[2]);
+                            }
+                            numbs[2]=Math.ceil(ratio[2]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[2]]);
+                            if(Number(troopshome[1])>numbs[2]) {
+                                $('#rval'+ttm[2]).val(numbs[2]);
+                            }
+                        } else if(troopshome[1]>0) {                            
+                            numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
+                            if(Number(troopshome[1])>numbs[2]) {
+                                $('#rval'+ttm[1]).val(numbs[2]);
+                            } else {
+                                message="Error, you need at least " + numbs[2] + " " + ttname[ttm[1]]+"!";
+                                errorgo(message);
+                            }
+                            if((Number(troopshome[1])/Number(numbs[2]))<count) {
+                                count=Number(troopshome[1])/Number(numbs[2]);
+                            }
+                            numbs[2]=Math.ceil(ratio[2]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[2]]);
+                            if(Number(troopshome[1])>numbs[2]) {
+                                $('#rval'+ttm[2]).val(numbs[2]);
+                            }
                         } else {
-                                    message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
-                                    errorgo(message);
-                                }
-                        if((Number(troopshome[0])/Number(numbs[2]))<count) {
-                            count=Number(troopshome[0])/Number(numbs[2]);
+                            numbs[2]=Math.ceil(ratio[2]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[2]]);
+                            if(Number(troopshome[2])>numbs[2]) {
+                                $('#rval'+ttm[2]).val(numbs[2]);
+                            } else {
+                                message="Error, you need at least " + numbs[2] + " " + ttname[ttm[2]]+"!";
+                                errorgo(message);
+                            }
+                            if((Number(troopshome[2])/Number(numbs[2]))<count) {
+                                count=Number(troopshome[2])/Number(numbs[2]);
+                            }
                         }
-                        numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
-                        if(Number(troopshome[1])>numbs[2]) {
-                            $('#rval'+ttm[1]).val(numbs[2]);
-                        }
-                        numbs[2]=Math.ceil(ratio[2]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[2]]);
-                        if(Number(troopshome[1])>numbs[2]) {
-                            $('#rval'+ttm[2]).val(numbs[2]);
-                        }
+                            
                     }
                 }
                 console.log("count:"+count);
