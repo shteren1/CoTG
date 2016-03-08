@@ -12,12 +12,12 @@
     var bossdef=[625,3750,25000,50000,125000,187500,250000,375000,562500,750000];
     var numbs=[0,0,0];
     var ttloot=[0,0,10,20,10,10,5,0,15,20,15,10,0,0,1000,1500,3000];
-    var ttattack=[0,0,30,10,25,50,70,0,40,60,90,120,0,0,3000,1200,12000];
-    var iscav=[0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0];
-    var isinf=[0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0];
+    var ttattack=[10,50,30,10,25,50,70,10,40,60,90,120,50,150,3000,1200,12000];
+    var iscav=[0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0];
+    var isinf=[1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0];
     var ismgc=[0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0];
-    var isart=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1];
-    var ttname=["null","null","Rangers","Triari","Priestess","Vanquishers","Sorcerers","null","Arbalists","Praetors","Horsemans","Druids","null","null","Galleys","Stingers","Warships"];
+    var isart=[0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1];
+    var ttname=["Guards","Balistas","Rangers","Triari","Priestess","Vanquishers","Sorcerers","Scouts","Arbalists","Praetors","Horsemans","Druids","Rams","Scorpions","Galleys","Stingers","Warships"];
     
     $(document).ready(function() {
         $("#loccavwarconGo").click(function() {
