@@ -17,7 +17,7 @@
     var isinf=[1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0];
     var ismgc=[0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0];
     var isart=[0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1];
-    var ttname=["Guards","Balistas","Rangers","Triari","Priestess","Vanquishers","Sorcerers","Scouts","Arbalists","Praetors","Horsemans","Druids","Rams","Scorpions","Galleys","Stingers","Warships"];
+    var ttname=["Guards","Ballistas","Rangers","Triari","Priestess","Vanquishers","Sorcerers","Scouts","Arbalists","Praetors","Horsemans","Druids","Rams","Scorpions","Galleys","Stingers","Warships"];
     
     $(document).ready(function() {
         $("#loccavwarconGo").click(function() {
