@@ -16,7 +16,7 @@
     var iscav=[0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0];
     var isinf=[1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0];
     var ismgc=[0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0];
-    var isart=[0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1];
+    var isart=[0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1];
     var ttres=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
     var resbonus=[1,1.01,1.03,1.06,1.1,1.15,1.2,1.25,1.3,1.35,1.4,1.45,1.5];
     var ttname=["Guards","Ballistas","Rangers","Triari","Priestess","Vanquishers","Sorcerers","Scouts","Arbalists","Praetors","Horsemans","Druids","Rams","Scorpions","Galleys","Stingers","Warships"];
