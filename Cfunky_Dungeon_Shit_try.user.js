@@ -56,7 +56,7 @@
     }
     
     var errmBR=0;
-    var message="You need ";
+    
     
     function errorgo(j) {
         var errormsgs;
@@ -115,7 +115,7 @@
                             var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
                             if (amount<troops) {
                                 $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message+amount +' troops!');}
+                            } else {var message="You need "+amount+" troops!"; errorgo(message);}
                         } else {
                             var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
                             if (amount<troops) {
