@@ -17,10 +17,8 @@
     var isinf=[0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0];
     var ismgc=[0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0];
     var isart=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1];
-        
-// trooptypes 2 rangers, 3 triari, 4 priestess, 5 vanqs, 6 sorc, 8 arbs,9 praetors, 10 horses, 11 druids, 14 galley, 15 stinger, 16 warship
+    var ttname=["null","null","Rangers","Triari","Priestess","Vanquishers","Sorcerers","null","Arbalists","Praetors","Horsemans","Druids","null","null","Galleys","Stingers","Warships"];
     
-
     $(document).ready(function() {
         $("#loccavwarconGo").click(function() {
             //createTable();
@@ -36,7 +34,7 @@
     });
     
     document.getElementById('raidDungGo').onclick = function() {
-            createTable();
+            //createTable();
         setTimeout(function(){setbossloot();}, 1000);
         }; 
     function errormsgBR(a, b) {
@@ -56,7 +54,8 @@
     }
     
     var errmBR=0;
-    var message="You don't have enough troops!";
+    var message="Error, you need at least ";
+    //console.log(message);
     
     function errorgo(j) {
         var errormsgs;
@@ -111,98 +110,156 @@
             if (tt!==7) {
                 if (troops>0) {
                     if (bosstype=="Triton") {
-                        if (isart[tt]) {
-                            var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                            if (amount<troops) {
-                                $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message);}
-                        } else {
-                            var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                            if (amount<troops) {
-                                $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message);}
+                        $('#cfunkydiv').remove();
+                        if (tt>13) {
+                            if (isart[tt]) {
+                                var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
+                                if (amount<troops) {
+                                    $('#raidIP'+tt).val(amount);
+                                } else {
+                                    message="Error, you need at least " + amount + " " + ttname[tt]+"!";
+                                    errorgo(message);
+                                }
+                            } else {
+                                var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
+                                if (amount<troops) {
+                                    $('#raidIP'+tt).val(amount);
+                                } else {
+                                    message="Error, you need at least " + amount + " " + ttname[tt]+"!";
+                                    errorgo(message);
+                                }
+                            }
                         }
                     }
-                    if (bosstype=="Cyclops") {
-                        if (iscav[tt]) {
-                            var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                            if (amount<troops) {
-                                $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message);}
-                        } else {
-                            var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                            if (amount<troops) {
-                                $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message);}
+                    else if (bosstype=="Cyclops") {
+                        if (tt<13) {
+                            if (iscav[tt]) {
+                                var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
+                                if (amount<troops) {
+                                    $('#raidIP'+tt).val(amount);
+                                } else {
+                                    message="Error, you need at least " + amount + " " + ttname[tt]+"!";
+                                    errorgo(message);
+                                }
+                            } else {
+                                var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
+                                if (amount<troops) {
+                                    $('#raidIP'+tt).val(amount);
+                                } else {
+                                    message="Error, you need at least " + amount + " " + ttname[tt]+"!";
+                                    errorgo(message);
+                                }
+                            }
                         }
                     }
-                    if (bosstype=="Andar's Colosseum Challenge") {
-                        if (iscav[tt]) {
-                            var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                            if (amount<troops) {
-                                $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message);}
-                        } else {
-                            var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                            if (amount<troops) {
-                                $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message);}
+                    else if (bosstype=="Andar's Colosseum Challenge") {
+                        if (tt<13) {
+                            if (iscav[tt]) {
+                                var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
+                                if (amount<troops) {
+                                    $('#raidIP'+tt).val(amount);
+                                } else {
+                                    message="Error, you need at least " + amount + " " + ttname[tt]+"!";
+                                    errorgo(message);
+                                }
+                            } else {
+                                var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
+                                if (amount<troops) {
+                                    $('#raidIP'+tt).val(amount);
+                                } else {
+                                    message="Error, you need at least " + amount + " " + ttname[tt]+"!";
+                                    errorgo(message);
+                                }
+                            }
                         }
                     }
-                    if (bosstype=="Dragon") {
-                        if (isinf[tt]) {
-                            var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                            if (amount<troops) {
-                                $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message);}
-                        } else {
-                            var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                            if (amount<troops) {
-                                $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message);}
+                    else if (bosstype=="Dragon") {
+                        if (tt<13) {
+                            if (isinf[tt]) {
+                                var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
+                                if (amount<troops) {
+                                    $('#raidIP'+tt).val(amount);
+                                } else {
+                                    message="Error, you need at least " + amount + " " + ttname[tt]+"!";
+                                    errorgo(message);
+                                }
+                            } else {
+                                var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
+                                if (amount<troops) {
+                                    $('#raidIP'+tt).val(amount);
+                                } else {
+                                    message="Error, you need at least " + amount + " " + ttname[tt]+"!";
+                                    errorgo(message);
+                                }
+                            }
                         }
                     }
-                    if (bosstype=="Romulus and Remus") {
-                        if (isinf[tt]) {
-                            var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                            if (amount<troops) {
-                                $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message);}
-                        } else {
-                            var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                            if (amount<troops) {
-                                $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message);}
+                    else if (bosstype=="Romulus and Remus") {
+                        if (tt<13) {
+                            if (isinf[tt]) {
+                                var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
+                                if (amount<troops) {
+                                    $('#raidIP'+tt).val(amount);
+                                } else {
+                                    message="Error, you need at least " + amount + " " + ttname[tt]+"!";
+                                    errorgo(message);
+                                }
+                            } else {
+                                var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
+                                if (amount<troops) {
+                                    $('#raidIP'+tt).val(amount);
+                                } else {
+                                    message="Error, you need at least " + amount + " " + ttname[tt]+"!";
+                                    errorgo(message);
+                                }
+                            }
                         }
                     }
-                    if (bosstype=="Gorgon") {
-                        if (ismgc[tt]) {
-                            var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                            //console.log(amount);
-                            //console.log(troops);
-                            if (amount<troops) {
-                                $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message);}
-                        } else {
-                            var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                            if (amount<troops) {
-                                $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message);}
+                    else if (bosstype=="Gorgon") {
+                        if (tt<13) {
+                            if (ismgc[tt]) {
+                                var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
+                                //console.log(amount);
+                                //console.log(troops);
+                                if (amount<troops) {
+                                    $('#raidIP'+tt).val(amount);
+                                } else {
+                                    message="Error, you need at least " + amount + " " + ttname[tt]+"!";
+                                    errorgo(message);
+                                }
+                            } else {
+                                var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
+                                if (amount<troops) {
+                                    $('#raidIP'+tt).val(amount);
+                                } else {
+                                    message="Error, you need at least " + amount + " " + ttname[tt]+"!";
+                                    errorgo(message);
+                                }
+                            }
                         }
                     }
-                    if (bosstype=="GM Gordy") {
-                        if (ismgc[tt]) {
-                            var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                            if (amount<troops) {
-                                $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message);}
-                        } else {
-                            var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                            if (amount<troops) {
-                                $('#raidIP'+tt).val(amount);
-                            } else {errorgo(message);}
+                    else if (bosstype=="GM Gordy") {
+                        if (tt<13) {
+                            if (ismgc[tt]) {
+                                var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
+                                if (amount<troops) {
+                                    $('#raidIP'+tt).val(amount);
+                                } else {
+                                    message="Error, you need at least " + amount + " " + ttname[tt]+"!";
+                                    errorgo(message);
+                                }
+                            } else {
+                                var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
+                                if (amount<troops) {
+                                    $('#raidIP'+tt).val(amount);
+                                } else {
+                                    message="Error, you need at least " + amount + " " + ttname[tt]+"!";
+                                    errorgo(message);
+                                }
+                            }
                         }
                     }
+                    else { createTable();}
                 }
             }
             });
@@ -255,7 +312,10 @@
                     numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[0]]);
                     if(Number(troopshome)>numbs[2]) {
                         $('#rval'+ttm[0]).val(numbs[2]);
-                    } else {errorgo(message);}
+                    } else {
+                                    message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
+                                    errorgo(message);
+                                }
                     if((Number(troopshome)/Number(numbs[2]))<count) {
                         count=Number(troopshome)/Number(numbs[2]);
                     }
@@ -266,7 +326,10 @@
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[0]]);
                         if(Number(troopshome)>numbs[2]) {
                             $('#rval'+ttm[0]).val(numbs[2]);
-                        } else {errorgo(message);}
+                        } else {
+                                    message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
+                                    errorgo(message);
+                                }
                         if((Number(troopshome)/Number(numbs[2]))<count) {
                             count=Number(troopshome)/Number(numbs[2]);
                         }
@@ -280,7 +343,10 @@
                         console.log(numbs[2]);
                         if(Number(troopshome[0])>numbs[2]) {
                             $('#rval'+ttm[0]).val(numbs[2]);
-                        } else {errorgo(message);}
+                        }  else {
+                                    message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
+                                    errorgo(message);
+                                }
                         if((Number(troopshome[0])/Number(numbs[2]))<count) {
                             count=Number(troopshome[0])/Number(numbs[2]);
                         }
@@ -300,7 +366,10 @@
                         console.log(numbs[2]);
                         if(Number(troopshome[0])>numbs[2]) {
                             $('#rval'+ttm[0]).val(numbs[2]);
-                        } else {errorgo(message);}
+                        } else {
+                                    message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
+                                    errorgo(message);
+                                }
                         if((Number(troopshome[0])/Number(numbs[2]))<count) {
                             count=Number(troopshome[0])/Number(numbs[2]);
                         }
@@ -322,7 +391,10 @@
                         console.log(numbs[2]);
                         if(Number(troopshome[0])>numbs[2]) {
                             $('#rval'+ttm[0]).val(numbs[2]);
-                        } else {errorgo(message);}
+                        } else {
+                                    message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
+                                    errorgo(message);
+                                }
                         if((Number(troopshome[0])/Number(numbs[2]))<count) {
                             count=Number(troopshome[0])/Number(numbs[2]);
                         }
