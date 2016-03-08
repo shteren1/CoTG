@@ -114,7 +114,7 @@
                         if (tt>13) {
                             if (isart[tt]) {
                                 var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                                if (amount<troops) {
+                                if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
                                     message="Error, you need at least " + amount + " " + ttname[tt]+"!";
@@ -122,7 +122,7 @@
                                 }
                             } else {
                                 var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                                if (amount<troops) {
+                                if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
                                     message="Error, you need at least " + amount + " " + ttname[tt]+"!";
@@ -135,7 +135,7 @@
                         if (tt<13) {
                             if (iscav[tt]) {
                                 var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                                if (amount<troops) {
+                                if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
                                     message="Error, you need at least " + amount + " " + ttname[tt]+"!";
@@ -143,7 +143,7 @@
                                 }
                             } else {
                                 var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                                if (amount<troops) {
+                                if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
                                     message="Error, you need at least " + amount + " " + ttname[tt]+"!";
@@ -156,7 +156,7 @@
                         if (tt<13) {
                             if (iscav[tt]) {
                                 var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                                if (amount<troops) {
+                                if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
                                     message="Error, you need at least " + amount + " " + ttname[tt]+"!";
@@ -164,7 +164,7 @@
                                 }
                             } else {
                                 var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                                if (amount<troops) {
+                                if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
                                     message="Error, you need at least " + amount + " " + ttname[tt]+"!";
@@ -177,7 +177,7 @@
                         if (tt<13) {
                             if (isinf[tt]) {
                                 var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                                if (amount<troops) {
+                                if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
                                     message="Error, you need at least " + amount + " " + ttname[tt]+"!";
@@ -185,7 +185,7 @@
                                 }
                             } else {
                                 var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                                if (amount<troops) {
+                                if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
                                     message="Error, you need at least " + amount + " " + ttname[tt]+"!";
@@ -198,7 +198,7 @@
                         if (tt<13) {
                             if (isinf[tt]) {
                                 var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                                if (amount<troops) {
+                                if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
                                     message="Error, you need at least " + amount + " " + ttname[tt]+"!";
@@ -206,7 +206,7 @@
                                 }
                             } else {
                                 var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                                if (amount<troops) {
+                                if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
                                     message="Error, you need at least " + amount + " " + ttname[tt]+"!";
@@ -221,7 +221,7 @@
                                 var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
                                 //console.log(amount);
                                 //console.log(troops);
-                                if (amount<troops) {
+                                if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
                                     message="Error, you need at least " + amount + " " + ttname[tt]+"!";
@@ -229,7 +229,7 @@
                                 }
                             } else {
                                 var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                                if (amount<troops) {
+                                if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
                                     message="Error, you need at least " + amount + " " + ttname[tt]+"!";
@@ -242,7 +242,7 @@
                         if (tt<13) {
                             if (ismgc[tt]) {
                                 var amount=Math.ceil(bossdef[bosslvl-1]*8/(3*ttattack[tt]));
-                                if (amount<troops) {
+                                if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
                                     message="Error, you need at least " + amount + " " + ttname[tt]+"!";
@@ -250,7 +250,7 @@
                                 }
                             } else {
                                 var amount=Math.ceil(bossdef[bosslvl-1]*4/ttattack[tt]);
-                                if (amount<troops) {
+                                if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
                                     message="Error, you need at least " + amount + " " + ttname[tt]+"!";
@@ -310,7 +310,7 @@
                     troopshome[0]=$('#rval'+ttm[0]).val();
                     //console.log(troopshome);
                     numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[0]]);
-                    if(Number(troopshome)>numbs[2]) {
+                    if(Number(troopshome)=>numbs[2]) {
                         $('#rval'+ttm[0]).val(numbs[2]);
                     } else {
                                     message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
@@ -324,7 +324,7 @@
                     if (ttm[1]==14) {
                         troopshome[0]=$('#rval'+ttm[0]).val();
                         numbs[2]=Math.ceil(loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[0]]);
-                        if(Number(troopshome)>numbs[2]) {
+                        if(Number(troopshome)=>numbs[2]) {
                             $('#rval'+ttm[0]).val(numbs[2]);
                         } else {
                                     message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
@@ -342,7 +342,7 @@
                         numbs[2]=Math.ceil(ratio[0]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[0]]);
                         //console.log(numbs[2]);
                         if (troopshome[0]>0) {
-                            if(Number(troopshome[0])>numbs[2]) {
+                            if(Number(troopshome[0])=>numbs[2]) {
                                 $('#rval'+ttm[0]).val(numbs[2]);
                             }  else {
                                 message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
@@ -352,13 +352,13 @@
                                 count=Number(troopshome[0])/Number(numbs[2]);
                             }  
                             numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
-                            if(Number(troopshome[1])>numbs[2]) {
+                            if(Number(troopshome[1])=>numbs[2]) {
                                 $('#rval'+ttm[1]).val(numbs[2]);
                             }
                         }
                         else {
                             numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
-                            if(Number(troopshome[1])>numbs[2]) {
+                            if(Number(troopshome[1])=>numbs[2]) {
                                 $('#rval'+ttm[1]).val(numbs[2]);
                             } else {
                                 message="Error, you need at least " + numbs[2] + " " + ttname[ttm[1]]+"!";
@@ -379,7 +379,7 @@
                         numbs[2]=Math.ceil(ratio[0]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[0]]);
                         //console.log(numbs[2]);
                         if (troopshome[0]>0) {
-                            if(Number(troopshome[0])>numbs[2]) {
+                            if(Number(troopshome[0])=>numbs[2]) {
                                 $('#rval'+ttm[0]).val(numbs[2]);
                             }  else {
                                 message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
@@ -389,13 +389,13 @@
                                 count=Number(troopshome[0])/Number(numbs[2]);
                             }  
                             numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
-                            if(Number(troopshome[1])>numbs[2]) {
+                            if(Number(troopshome[1])=>numbs[2]) {
                                 $('#rval'+ttm[1]).val(numbs[2]);
                             }
                         }
                         else {
                             numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
-                            if(Number(troopshome[1])>numbs[2]) {
+                            if(Number(troopshome[1])=>numbs[2]) {
                                 $('#rval'+ttm[1]).val(numbs[2]);
                             } else {
                                 message="Error, you need at least " + numbs[2] + " " + ttname[ttm[1]]+"!";
@@ -418,7 +418,7 @@
                         if (troopshome[0]>0) {
                             numbs[2]=Math.ceil(ratio[0]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[0]]);
                             console.log(numbs[2]);
-                            if(Number(troopshome[0])>numbs[2]) {
+                            if(Number(troopshome[0])=>numbs[2]) {
                                 $('#rval'+ttm[0]).val(numbs[2]);
                             } else {
                                 message="Error, you need at least " + numbs[2] + " " + ttname[ttm[0]]+"!";
@@ -428,16 +428,16 @@
                                 count=Number(troopshome[0])/Number(numbs[2]);
                             }
                             numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
-                            if(Number(troopshome[1])>numbs[2]) {
+                            if(Number(troopshome[1])=>numbs[2]) {
                                 $('#rval'+ttm[1]).val(numbs[2]);
                             }
                             numbs[2]=Math.ceil(ratio[2]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[2]]);
-                            if(Number(troopshome[1])>numbs[2]) {
+                            if(Number(troopshome[1])=>numbs[2]) {
                                 $('#rval'+ttm[2]).val(numbs[2]);
                             }
                         } else if(troopshome[1]>0) {                            
                             numbs[2]=Math.ceil(ratio[1]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[1]]);
-                            if(Number(troopshome[1])>numbs[2]) {
+                            if(Number(troopshome[1])=>numbs[2]) {
                                 $('#rval'+ttm[1]).val(numbs[2]);
                             } else {
                                 message="Error, you need at least " + numbs[2] + " " + ttname[ttm[1]]+"!";
@@ -447,12 +447,12 @@
                                 count=Number(troopshome[1])/Number(numbs[2]);
                             }
                             numbs[2]=Math.ceil(ratio[2]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[2]]);
-                            if(Number(troopshome[1])>numbs[2]) {
+                            if(Number(troopshome[1])=>numbs[2]) {
                                 $('#rval'+ttm[2]).val(numbs[2]);
                             }
                         } else {
                             numbs[2]=Math.ceil(ratio[2]*loot[numbs[0]]*((100-numbs[1])*0.008+1)/ttloot[ttm[2]]);
-                            if(Number(troopshome[2])>numbs[2]) {
+                            if(Number(troopshome[2])=>numbs[2]) {
                                 $('#rval'+ttm[2]).val(numbs[2]);
                             } else {
                                 message="Error, you need at least " + numbs[2] + " " + ttname[ttm[2]]+"!";
