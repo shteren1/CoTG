@@ -183,7 +183,7 @@
                         $('#cfunkydiv').remove();
                         if (tt>13) {
                             if (isart[tt]) {
-                                var amount=Math.ceil(bossdefw[bosslvl-1]*8/(3*ttres[tt]*ttattack[tt]));
+                                var amount=Math.ceil(bossdefw[bosslvl-1]*4/(ttres[tt]*ttattack[tt]));
                                 if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
@@ -204,7 +204,7 @@
                     else if (bosstype=="Cyclops") {
                         if (tt<13) {
                             if (iscav[tt]) {
-                                var amount=Math.ceil(bossdefw[bosslvl-1]*8/(3*ttres[tt]*ttattack[tt]));
+                                var amount=Math.ceil(bossdefw[bosslvl-1]*4/(ttres[tt]*ttattack[tt]));
                                 if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
@@ -225,7 +225,7 @@
                     else if (bosstype=="Andar's Colosseum Challenge") {
                         if (tt<13) {
                             if (iscav[tt]) {
-                                var amount=Math.ceil(bossdefw[bosslvl-1]*8/(3*ttres[tt]*ttattack[tt]));
+                                var amount=Math.ceil(bossdefw[bosslvl-1]*4/(ttres[tt]*ttattack[tt]));
                                 if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
@@ -246,7 +246,7 @@
                     else if (bosstype=="Dragon") {
                         if (tt<13) {
                             if (isinf[tt]) {
-                                var amount=Math.ceil(bossdefw[bosslvl-1]*8/(3*ttres[tt]*ttattack[tt]));
+                                var amount=Math.ceil(bossdefw[bosslvl-1]*4/(ttres[tt]*ttattack[tt]));
                                 if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
@@ -267,7 +267,7 @@
                     else if (bosstype=="Romulus and Remus") {
                         if (tt<13) {
                             if (isinf[tt]) {
-                                var amount=Math.ceil(bossdefw[bosslvl-1]*8/(3*ttres[tt]*ttattack[tt]));
+                                var amount=Math.ceil(bossdefw[bosslvl-1]*4/(ttres[tt]*ttattack[tt]));
                                 if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
@@ -288,7 +288,7 @@
                     else if (bosstype=="Gorgon") {
                         if (tt<13) {
                             if (ismgc[tt]) {
-                                var amount=Math.ceil(bossdefw[bosslvl-1]*8/(3*ttres[tt]*ttattack[tt]));
+                                var amount=Math.ceil(bossdefw[bosslvl-1]*4/(ttres[tt]*ttattack[tt]));
                                 //console.log(amount);
                                 //console.log(troops);
                                 if (amount<=troops) {
@@ -311,7 +311,7 @@
                     else if (bosstype=="GM Gordy") {
                         if (tt<13) {
                             if (ismgc[tt]) {
-                                var amount=Math.ceil(bossdefw[bosslvl-1]*8/(3*ttres[tt]*ttattack[tt]));
+                                var amount=Math.ceil(bossdefw[bosslvl-1]*4/(ttres[tt]*ttattack[tt]));
                                 if (amount<=troops) {
                                     $('#raidIP'+tt).val(amount);
                                 } else {
